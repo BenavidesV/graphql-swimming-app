@@ -7,12 +7,12 @@ const eventSchema = new Schema({
     type: String,
     required: true
   },
-  description: {
-    type: String,
+  runway: {
+    type: Number,
     required: true
   },
-  price: {
-    type: Number,
+  description: {
+    type: String,
     required: true
   },
   date: {
@@ -22,7 +22,12 @@ const eventSchema = new Schema({
   creator: {
       type: Schema.Types.ObjectId,
       ref: 'User'
-  }
+  },
+  suscribers: [{
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+}]
+
 });
 
 module.exports = mongoose.model('Event', eventSchema);
