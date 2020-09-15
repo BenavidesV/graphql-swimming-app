@@ -11,6 +11,12 @@ const bookingSchema = new Schema(
     user: {
       type: Schema.Types.ObjectId,
       ref: 'User'
+    },
+    runway: {
+      type: Number
+    },
+    attendance:{
+      type: Boolean
     }
   },
   { timestamps: true }

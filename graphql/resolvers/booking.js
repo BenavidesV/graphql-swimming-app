@@ -30,7 +30,8 @@ module.exports = {
     }
     const booking = new Booking({
       user: req.userId,
-      event: fetchedEvent
+      event: fetchedEvent,
+      attendance:false
     });
     const result = await booking.save();
     fetchedEvent.suscribers.push(suscriber);
@@ -47,6 +48,22 @@ module.exports = {
       const event = transformEvent(booking.event);
       await Booking.deleteOne({ _id: args.bookingId });
       return event;
+    } catch (err) {
+      throw err;
+    }
+  },
+  confirmBooking: async (args, req) => {
+    if (!req.isAuth) {
+      throw new Error('Unauthenticated!');
+    }
+    try {
+      
+      const booking = await Booking.findOne({event: args.eventId, user:req.userId });
+      booking.attendance=true;
+      booking.runway=args.runwaySelected
+      booking.save();
+      
+      return booking;
     } catch (err) {
       throw err;
     }

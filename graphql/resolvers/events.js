@@ -25,7 +25,7 @@ module.exports = {
       date: new Date(args.eventInput.date),
       creator: req.userId,
       subscribers: [],
-      runway:args.eventInput.runway
+      capacity:args.eventInput.capacity
     });
     let createdEvent;
     try {

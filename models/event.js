@@ -7,7 +7,7 @@ const eventSchema = new Schema({
     type: String,
     required: true
   },
-  runway: {
+  capacity: {
     type: Number,
     required: true
   },
@@ -20,13 +20,13 @@ const eventSchema = new Schema({
     required: true
   },
   creator: {
-      type: Schema.Types.ObjectId,
-      ref: 'User'
+    type: Schema.Types.ObjectId,
+    ref: 'User'
   },
   suscribers: [{
     type: Schema.Types.ObjectId,
     ref: 'User'
-}]
+  }]
 
 });
 

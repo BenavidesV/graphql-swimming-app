@@ -5,6 +5,8 @@ type Booking {
     _id: ID!
     event: Event!
     user: User!
+    runway: Int!
+    attendance: Boolean!
     createdAt: String!
     updatedAt: String!
 }
@@ -16,7 +18,7 @@ type Event {
   date: String!
   creator: User!
   suscribers: [User!]!
-  runway: Int!
+  capacity: Int!
 }
 
 type User {
@@ -38,7 +40,7 @@ input EventInput {
   title: String!
   description: String!
   date: String!
-  runway: Int!
+  capacity: Int!
 }
 
 input UserInput {
@@ -61,6 +63,7 @@ type RootMutation {
     createUser(userInput: UserInput): User
     bookEvent(eventId: ID!): Booking!
     cancelBooking(bookingId: ID!): Event!
+    confirmBooking(bookingId: ID!): Event!
 }
 
 schema {
