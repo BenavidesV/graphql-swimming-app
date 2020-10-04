@@ -5,7 +5,7 @@ type Booking {
     _id: ID!
     event: Event!
     user: User!
-    runway: Int!
+    runway: Int
     attendance: Boolean!
     createdAt: String!
     updatedAt: String!
@@ -62,8 +62,9 @@ type RootMutation {
     createEvent(eventInput: EventInput): Event
     createUser(userInput: UserInput): User
     bookEvent(eventId: ID!): Booking!
+    eventBookings(eventId: ID!): [Booking!]!
     cancelBooking(bookingId: ID!): Event!
-    confirmBooking(bookingId: ID!): Event!
+    checkList(bookingId: ID!, runwaySelected: Int): Booking!
 }
 
 schema {
