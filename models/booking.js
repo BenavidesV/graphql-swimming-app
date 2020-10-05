@@ -17,6 +17,9 @@ const bookingSchema = new Schema(
     },
     attendance:{
       type: Boolean
+    },
+    approved:{
+      type: Boolean
     }
   },
   { timestamps: true }

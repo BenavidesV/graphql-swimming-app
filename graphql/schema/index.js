@@ -7,6 +7,7 @@ type Booking {
     user: User!
     runway: Int
     attendance: Boolean!
+    approved: Boolean!
     createdAt: String!
     updatedAt: String!
 }
@@ -55,6 +56,7 @@ input UserInput {
 type RootQuery {
     events: [Event!]!
     bookings: [Booking!]!
+    approvalBookings: [Booking!]!
     login(email: String!, password: String!): AuthData!
 }
 
