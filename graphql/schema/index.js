@@ -66,6 +66,7 @@ type RootMutation {
     bookEvent(eventId: ID!): Booking!
     eventBookings(eventId: ID!): [Booking!]!
     cancelBooking(bookingId: ID!): Event!
+    confirmBooking(bookingId: ID!): Booking!
     checkList(bookingId: ID!, runwaySelected: Int): Booking!
 }
 

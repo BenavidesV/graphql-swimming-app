@@ -43,6 +43,7 @@ module.exports = {
         user: req.userId,
         event: fetchedEvent._id,
         attendance: false,
+        approved: false,
         runway:0
       });
       const result = await booking.save();
@@ -72,10 +73,10 @@ module.exports = {
       throw new Error('Unauthenticated!');
     }
     try {
-      const booking = await Booking.findById(args.bookingId).populate('event');
-      const event = transformEvent(booking.event);
-      await Booking.deleteOne({ _id: args.bookingId });
-      return event;
+      const booking = await Booking.findById(args.bookingId);
+      booking.approved = true;
+      booking.save();
+      return transformBooking(booking)
     } catch (err) {
       throw err;
     }
