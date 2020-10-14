@@ -34,11 +34,14 @@ app.use(
 
 mongoose
   .connect(
-    `mongodb+srv://${process.env.MONGO_USER}:${
-      process.env.MONGO_PASSWORD}@booking.5o5i0.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`
-    )
+    `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@booking.5o5i0.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`
+  )
   .then(() => {
-    app.listen(8000);
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+      console.log(`Our app is running on port ${PORT}`);
+    });
+    //app.listen(8000);
   })
   .catch(err => {
     console.log(err);
