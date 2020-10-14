@@ -49,4 +49,5 @@ mongoose
   })
   .catch(err => {
     console.log(err);
+    console.log(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@booking.5o5i0.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`);
   });
