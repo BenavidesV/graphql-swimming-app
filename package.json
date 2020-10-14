@@ -9,6 +9,7 @@
   },
   "author": "",
   "license": "ISC",
+  "homepage": "http://api.piscina.novlic.com/",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
@@ -21,7 +22,5 @@
     "mongoose": "^5.3.15",
     "nodemon": "^1.18.7"
   },
-  "devDependencies": {
-    
-  }
+  "devDependencies": {}
 }

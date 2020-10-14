@@ -37,12 +37,14 @@ mongoose
     `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@booking.5o5i0.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`
   )
   .then(() => {
-    const host = '0.0.0.0';
+    //const host = '0.0.0.0';
     const port = process.env.PORT || 8000;
-    const PORT = process.env.PORT || 8000;
-    app.listen(port, host, function() {
+    app.listen(port, function() {
       console.log("Server started.......");
     });
+    /*app.listen(port, host, function() {
+      console.log("Server started.......");
+    });*/
     //app.listen(8000);
   })
   .catch(err => {
