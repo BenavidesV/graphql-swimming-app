@@ -9,7 +9,7 @@
   },
   "author": "",
   "license": "ISC",
-  "homepage": "http://api.piscina.novlic.com/",
+  "homepage": "https://api-swimming.herokuapp.com/",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
