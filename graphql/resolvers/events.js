@@ -55,7 +55,7 @@ module.exports = {
     final_date.setMinutes(59);
     final_date.setSeconds(59);
     try {
-      const events = await Event.filter((e) => (e.date > t_date && e.date <= final_date));
+      const events = await Event.find((e) => (e.date > t_date));
       return events.map(event => {
         return transformEvent(event);
       });
