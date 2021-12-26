@@ -5,6 +5,24 @@ const { transformEvent } = require('./merge');
 
 module.exports = {
   events: async () => {
+    if (args.date) {
+      var t_date= new Date(args.date);
+      t_date.setHours(0);
+      t_date.setMinutes(0);
+      t_date.setSeconds(0);
+      var final_date=new Date(args.date);
+      final_date.setHours(23);
+      final_date.setMinutes(59);
+      final_date.setSeconds(59);
+      try {
+        const events = await Event.find((e) => (e.date > start_date && e.date <= final_date));
+        return events.map(event => {
+          return transformEvent(event);
+        });
+      } catch (err) {
+        throw err;
+      }
+    }
     try {
       const events = await Event.find();
       return events.map(event => {
