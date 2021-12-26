@@ -1,4 +1,3 @@
-import moment from 'moment';
 const Event = require('../../models/event');
 const User = require('../../models/user');
 
@@ -47,17 +46,14 @@ module.exports = {
 
   },
   dateEvents: async (args) => {
-    var t_date=moment(args.date);
-    var start_date=t.set({
-      hour:   '0',
-      minute: '0',
-      second: '0'
-      });
-    var final_date=t_date.set({
-          hour:   '23',
-          minute: '59',
-          second: '59'
-      });
+    var t_date= new Date(args.date);
+    t_date.setHours(0);
+    t_date.setMinutes(0);
+    t_date.setSeconds(0);
+    var final_date=new Date(args.date);
+    final_date.setHours(23);
+    final_date.setMinutes(59);
+    final_date.setSeconds(59);
     try {
       const events = await Event.find((e) => (e.date > start_date && e.date <= final_date));
       return events.map(event => {
