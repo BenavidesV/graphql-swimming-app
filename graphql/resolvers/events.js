@@ -45,5 +45,26 @@ module.exports = {
       throw err;
     }
 
-  }
+  },
+  dateEvents: async (args) => {
+    var t_date=moment(args.date);
+    var start_date=t.set({
+      hour:   '0',
+      minute: '0',
+      second: '0'
+      });
+    var final_date=t_date.set({
+          hour:   '23',
+          minute: '59',
+          second: '59'
+      });
+    try {
+      const events = await Event.find((e) => (e.date > start_date && e.date <= final_date));
+      return events.map(event => {
+        return transformEvent(event);
+      });
+    } catch (err) {
+      throw err;
+    }
+  },
 };

@@ -92,7 +92,7 @@ module.exports = {
       booking.attendance = true;
       booking.runway = args.runwaySelected
       booking.save();
-      
+
       return transformBooking(booking);
     } catch (err) {
       throw err;

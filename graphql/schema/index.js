@@ -58,6 +58,7 @@ type RootQuery {
     bookings: [Booking!]!
     approvalBookings: [Booking!]!
     login(email: String!, password: String!): AuthData!
+    dateEvents(date: String): [Event]
 }
 
 type RootMutation {
