@@ -61,7 +61,7 @@ module.exports = {
           $gte: t_date,
           $lte: final_date
         }
-      });
+      }).sort({date: 'date'});
       //const events = await Event.find()
       return events.map(event => {
         return transformEvent(event);
